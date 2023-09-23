@@ -1,0 +1,133 @@
+*{
+    box-sizing:border-box;
+    margin:0 auto;
+    font-family: 'Nunito', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 2em 4em;;
+    
+}
+
+h1 {
+    margin: 0;
+    text-transform:uppercase;
+}
+.logo{
+    padding:10px;
+}
+.logo:hover{
+    border-radius:50px;
+    
+    background-color:rgb(0, 0, 0);
+    color:white;
+}
+nav{
+    margin-right:0;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color:black;
+    position: relative;
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: #000000;
+    transition: all 0.3s;
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+/* Médias querries pour téléphone (à revoir c'est de la merde)*/
+@media (max-width: 450px) {
+    header{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    nav ul {
+        margin-left: 0;
+        display:flex;
+    }
+
+    nav li {
+        margin-right: 0;
+        margin-bottom: 10px;
+        flex-direction: column;
+    }
+
+    nav {
+        text-align: center;
+    }
+}
+
+/*FIN DE LA NAV*/
+
+/*DEBUT DU MAIN*/
+.menu{
+    display:flex;
+    justify-content:space-between;
+    padding:0 10em;
+    height:80vh;
+    align-items:center;
+    
+}
+.menu *{
+    align-items:center;
+}
+.carré{
+    border:solid 1px;
+    width:10em;
+    height:10em;
+    z-index:20;
+    background-color:"";
+}
+.rond{
+    border:solid 1px;
+    width:10em;
+    height:10em;
+    border-radius:10em;
+}
+#triangle-skillzbox{
+    
+}
+.mainview{
+    width:50em;
+    height:50em;
+    position:absolute;
+    left:30%
+}
+.leftside{
+    position: absolute;
+    left:10%
+}
+.rightside{
+    position: absolute;
+    right:10%
+}
+
+
