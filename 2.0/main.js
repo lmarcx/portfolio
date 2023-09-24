@@ -1,146 +1,139 @@
 "use strict";
+//Initialisation des variables
+let sectionPres;
+let sectionRond;
+let sectionTriangle;
+let pClick;
+let p1;
+let p2;
+let p3;
+let p4;
+let p5;
+let textClick;
+let text1;
+let text2;
+let text3;
+let text4;
+let text5;
+let clickVerif;
+//Création des éléments de la page About
+function createTextClick(){
+    sectionPres = document.getElementById("carré-présentation");
+    pClick = document.createElement("p");
+    textClick = document.createTextNode("Hey, click !");
+    pClick.appendChild(textClick);
+    sectionPres.appendChild(pClick);
+    pClick.classList.add("click");
+    clickVerif = true;
 
-// Déclaration des variables
-/*var boxes = document.querySelectorAll('.box');
-let open = false;
-let carré = document.querySelector('#carré-présentation');
-let rond = document.querySelector('rond-linkbox');
-let triangle = document.querySelector('#triangle-skillzbox')*/
+}
+createTextClick();
 
-
-
-//
-// CODE PRINCIPAL
-//
-function toggleMain(){
-    /*switch(true){
-        case this.classList.contains('none'):
-            this.classList.add('mainview');
-            this.classList.remove('none');
-            break;
-        case 'leftside':
-            this.classList.remove('leftside');
-            thisclassList.add('mainview');
-        case 'rightside':
-            this.classList.remove('rightside');
-            this.classList.add('mainview');
-        case 'mainview':
-            thisclassList.remove('mainview');
-    }*/
-    console.log('ca marche');
+function removeTextClick(){
+    pClick.remove();
+    clickVerif = false;
+}
+function createMainText(){
+    sectionPres = document.getElementById("carré-présentation");
+    //Création premier paragraphe
+    p1 = document.createElement("p");
+    text1 = document.createTextNode("Jeune développeur de 27 ans, je suis en formation depuis Juin 2023 pour obtenir le titre Développeur Web Web Mobile.");
+    p1.appendChild(text1);
+    p1.classList.add("text-present");
+    sectionPres.appendChild(p1);
+    //Création deuxième paragraphe
+    p2 = document.createElement("p");
+    text2 = document.createTextNode("Actuellement je recherche un stage pour venir compléter cette formation, solidifier mes compétences et mettre un pied dans le milieu professionnel.");
+    p2.appendChild(text2);
+    p2.classList.add("text-present");
+    sectionPres.appendChild(p2);
+    //Création troisième paragraphe
+    p3 = document.createElement("p");
+    text3 = document.createTextNode("Je vous invite à aller regarder mes différents travaux dans la section adaptée. Sur cette page, vous pouvez également retrouver tous mes liens utiles et mes diverses compétences.");
+    p3.appendChild(text3);
+    p3.classList.add("text-present");
+    sectionPres.appendChild(p3);
+    clickVerif = true;
+    //Création du texte dans le rond
+    sectionRond = document.getElementById("rond-linkbox");
+    p4 = document.createElement("p");
+    text4 = document.createTextNode("Ici aussi !");
+    p4.appendChild(text4);
+    p4.classList.add("click");
+    sectionRond.appendChild(p4);
+}
+function removeMainText(){
+    p1.remove();
+    p2.remove();
+    p3.remove();
+    p4.remove();
+    clickVerif = false;
 }
 
-/*document.addEventListener("DOMContentLoaded", function () {
-    let carré = document.getElementById("carré-présentation");
-    carré.onclick = function(){
-        if (open){
-            carré.style.height = "10em";
-            carré.style.width = "10em"; 
-        } else {
-            carré.style.height = "50em";
-            carré.style.width = "50em";
-        }
-        open = !open;
-    };
-});
-*/
-/*document.addEventListener("DOMContentLoaded", function () {
-boxes.forEach(box => {
-    box.addEventListener('click', toggleMain);
-})
-});*/
+function removeClass(){
+    carré.classList.remove("leftside", "rightside", "mainview");
+    rond.classList.remove("leftside", "rightside", "mainview");
+    triangle.classList.remove("leftside", "rightside", "mainview");
+    triangle.setAttribute("width", "160");
+    triangle.setAttribute("height", "160");
+    triangle.querySelector("polygon").setAttribute("points", "80,10 10,150 150,150");
+    rond.style.borderRadius="";
+}
+
+
 // Variables pour suivre le dernier élément cliqué et le dernier SVG cliqué
 var dernierElementClique = null;
 var dernierSvgClique = null;
+var carré = document.querySelector("#carré-présentation");
+var rond = document.querySelector("#rond-linkbox");
+var triangle = document.querySelector("#triangle-skillzbox");
 
 // Fonction pour attribuer les classes et les propriétés CSS aux éléments enfants en fonction du clic
-function attribuerClassesEtStylesAuClic(elementClique) {
-    var enfants = document.querySelectorAll(".menu > .box");
-
-    if (enfants.length === 3) {
-        // Retirer les classes "mainview", "leftside" et "rightside" de tous les éléments
-        enfants.forEach(function (enfant) {
-            enfant.classList.remove("mainview");
-            enfant.classList.remove("leftside");
-            enfant.classList.remove("rightside");
-        });
-
-        // Remettre le dernier SVG cliqué à ses dimensions d'origine
-        if (dernierSvgClique) {
-            dernierSvgClique.setAttribute("width", "160");
-            dernierSvgClique.setAttribute("height", "160");
-            dernierSvgClique.querySelector("polygon").setAttribute("points", "80,10 10,150 150,150");
-            dernierSvgClique = null;
-        }
-
-        if (elementClique.tagName === "svg") {
-            // Si le SVG est cliqué, ajuster ses attributs pour obtenir un triangle dans une boîte de 800x800
-            if (dernierSvgClique === elementClique) {
-                // Si le même SVG est cliqué une deuxième fois, retourner à l'état d'origine
-                elementClique.setAttribute("width", "160");
-                elementClique.setAttribute("height", "160");
-                elementClique.querySelector("polygon").setAttribute("points", "80,10 10,150 150,150");
-                dernierSvgClique = null;
-            } else {
-                elementClique.setAttribute("width", "800");
-                elementClique.setAttribute("height", "800");
-                elementClique.querySelector("polygon").setAttribute("points", "400,10 10,790 790,790");
-                dernierSvgClique = elementClique;
-            }
-        } else if (elementClique.classList.contains("rond")) {
-            // Si le rond est cliqué, attribuer la classe "mainview", appliquer la propriété CSS "border-radius"
-            // et attribuer les classes "leftside" et "rightside" aux autres éléments
-            if (dernierElementClique === elementClique) {
-                // Si le même rond est cliqué une deuxième fois, retourner à l'état d'origine
-                dernierElementClique = null;
-                elementClique.style.borderRadius = "";
-            } else {
-                elementClique.classList.add("mainview");
-                elementClique.style.borderRadius = "50em";
-                dernierElementClique = elementClique;
-
-                // Diviser les deux autres éléments en "leftside" et "rightside"
-                var autresEnfants = Array.from(enfants).filter(function (enfant) {
-                    return enfant !== elementClique;
-                });
-
-                if (autresEnfants.length === 2) {
-                    autresEnfants[0].classList.add("leftside");
-                    autresEnfants[1].classList.add("rightside");
-                }
-            }
-        } else {
-            // Si un autre élément est cliqué, attribuer la classe "mainview" à cet élément
-            if (dernierElementClique === elementClique) {
-                // Si le même élément est cliqué une deuxième fois, retourner à l'état d'origine
-                dernierElementClique = null;
-            } else {
-                elementClique.classList.add("mainview");
-                dernierElementClique = elementClique;
-            }
-
-            // Diviser les deux autres éléments en "leftside" et "rightside"
-            var autresEnfants = Array.from(enfants).filter(function (enfant) {
-                return enfant !== elementClique;
-            });
-
-            if (autresEnfants.length === 2) {
-                autresEnfants[0].classList.add("leftside");
-                autresEnfants[1].classList.add("rightside");
-            }
-        }
+function toggleClick(box) {
+    console.log("click marche")
+    if(box.classList.contains("carré")){
+        console.log("c'est carré chef");
+        removeClass(box);
+        removeTextClick()
+        createMainText()
+        box.classList.toggle("mainview");
+        rond.classList.toggle("leftside");
+        triangle.classList.toggle("rightside");
+    }else if(box.classList.contains("rond")){
+        console.log("c'est rond chef");
+        removeClass(box);
+        removeMainText()
+        createTextClick();
+        box.classList.toggle("mainview");
+        rond.style.borderRadius="50em";
+        carré.classList.toggle("leftside");
+        triangle.classList.toggle("rightside");
+    }else if(box.classList.contains("triangle")){
+        console.log("c'est triangle chef");
+        removeClass(box);
+        removeMainText()
+        createTextClick();
+        box.classList.toggle("mainview");
+        box.setAttribute("width", "800");
+        box.setAttribute("height", "800");
+        box.querySelector("polygon").setAttribute("points", "400,10 10,790 790,790");
+        carré.classList.toggle("leftside");
+        rond.classList.toggle("rightside");
     }
+    
 }
 
 // Appeler la fonction lorsqu'un élément est cliqué
 document.addEventListener("DOMContentLoaded", function () {
-    var enfants = document.querySelectorAll(".menu > .box");
+    var boxes = document.querySelectorAll(".menu > .box");
 
-    if (enfants.length === 3) {
-        enfants.forEach(function (enfant) {
-            enfant.addEventListener("click", function () {
-                attribuerClassesEtStylesAuClic(enfant);
+    if (boxes.length === 3) {
+        boxes.forEach(function (box) {
+            box.addEventListener("click", function () {
+                toggleClick(box);
             });
         });
     }
 });
+
+

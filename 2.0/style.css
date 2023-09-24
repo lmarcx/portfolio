@@ -105,14 +105,18 @@ nav a:hover::before {
     height:10em;
     z-index:20;
     background-color:"";
+    cursor: pointer;
+    overflow: clip;
 }
 .rond{
     border:solid 1px;
     width:10em;
     height:10em;
     border-radius:10em;
+    cursor: pointer;
 }
 #triangle-skillzbox{
+    cursor: pointer;
     
 }
 .mainview{
@@ -128,6 +132,16 @@ nav a:hover::before {
 .rightside{
     position: absolute;
     right:10%
+}
+div > p{
+    font-size:2em;
+}
+.click{
+    padding:1.7em 0 1.7em 5px;
+}
+.text-present{
+    padding:1em 4em;
+    text-align: center;
 }
 
 
