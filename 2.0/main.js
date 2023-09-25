@@ -16,6 +16,7 @@ let text3;
 let text4;
 let text5;
 let clickVerif;
+
 //Création des éléments de la page About
 function createTextClick(){
     sectionPres = document.getElementById("carré-présentation");
@@ -80,10 +81,60 @@ function removeClass(){
     rond.style.borderRadius="";
 }
 
+function createIcons(){
+    sectionRond = document.getElementById("rond-linkbox");
+    //Création icone HTML
+    let i1 = document.createElement("i");
+    i1.classList.add("fa-brands", "fa-html5");
+    i1.style.cssText += "transform:scale(6.5)";
+    i1.style.cssText += "position: relative";
+    i1.style.cssText += "top: 20%";
+    i1.style.cssText += "left:48%";
+    sectionRond.appendChild(i1);
+    //Création icône CSS
+    let i2 = document.createElement("i");
+    i2.classList.add("fa-brands", "fa-css3-alt");
+    i2.style.cssText += "transform:scale(6.5)";
+    i2.style.cssText += "position: relative";
+    i2.style.cssText += "top: 46%";
+    i2.style.cssText += "left:80%";
+    sectionRond.appendChild(i2);
+    //Création icône JS
+    let i3 = document.createElement("i");
+    i3.classList.add("fa-brands", "fa-js");
+    i3.style.cssText += "transform:scale(6.5)";
+    i3.style.cssText += "position: relative";
+    i3.style.cssText += "top: 72%";
+    i3.style.cssText += "left:46%";
+    sectionRond.appendChild(i3);
+    //Création icône PHP
+    let i4 = document.createElement("i");
+    i4.classList.add("fa-brands", "fa-php");
+    i4.style.cssText += "transform:scale(6.5)";
+    i4.style.cssText += "position: relative";
+    i4.style.cssText += "top: 46%";
+    i4.style.cssText += "left:15%";
+    sectionRond.appendChild(i4);
+    //Créations icône Adobe
+    let i5 = document.createElement("i");
+    i5.classList.add("fa-regular", "fa-circle");
+    i5.style.cssText += "transform:scale(6.5)";
+    i5.style.cssText += "position: relative";
+    i5.style.cssText += "top: 46%";
+    i5.style.cssText += "left:42%";
+    sectionRond.appendChild(i5);
+}
+function removeIcons(){
+    i1.remove();
+    i2.remove();
+    i3.remove();
+    i4.remove();
+    i5.remove();
+}
 
-// Variables pour suivre le dernier élément cliqué et le dernier SVG cliqué
-var dernierElementClique = null;
-var dernierSvgClique = null;
+
+// Variables pour suivre le dernier élément cliqué
+var mainVerif = null;
 var carré = document.querySelector("#carré-présentation");
 var rond = document.querySelector("#rond-linkbox");
 var triangle = document.querySelector("#triangle-skillzbox");
@@ -91,34 +142,50 @@ var triangle = document.querySelector("#triangle-skillzbox");
 // Fonction pour attribuer les classes et les propriétés CSS aux éléments enfants en fonction du clic
 function toggleClick(box) {
     console.log("click marche")
+    
     if(box.classList.contains("carré")){
         console.log("c'est carré chef");
+        if(box.classList.contains("mainview")){
+            removeClass();
+            removeMainText();
+            createTextClick();
+        }
         removeClass(box);
-        removeTextClick()
-        createMainText()
+        removeTextClick();
+        createMainText();
+        
         box.classList.toggle("mainview");
         rond.classList.toggle("leftside");
         triangle.classList.toggle("rightside");
+        
     }else if(box.classList.contains("rond")){
         console.log("c'est rond chef");
         removeClass(box);
-        removeMainText()
+        removeMainText();
+        removeTextClick();
         createTextClick();
         box.classList.toggle("mainview");
         rond.style.borderRadius="50em";
         carré.classList.toggle("leftside");
         triangle.classList.toggle("rightside");
+        
+        createIcons();
     }else if(box.classList.contains("triangle")){
         console.log("c'est triangle chef");
         removeClass(box);
-        removeMainText()
+        removeMainText();
+        removeIcons();
+        removeTextClick();
         createTextClick();
+        
         box.classList.toggle("mainview");
         box.setAttribute("width", "800");
         box.setAttribute("height", "800");
         box.querySelector("polygon").setAttribute("points", "400,10 10,790 790,790");
         carré.classList.toggle("leftside");
         rond.classList.toggle("rightside");
+    }else if(box.classList.contains("mainview")){
+        box.classList.remove("mainview");
     }
     
 }

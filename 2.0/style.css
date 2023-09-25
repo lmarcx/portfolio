@@ -143,5 +143,58 @@ div > p{
     padding:1em 4em;
     text-align: center;
 }
+.test{
+    transform:scale(6.5);
+    position: relative;
+    top: 46%;
+    left:75%;
+}
+.page-title{
+    position: absolute;
+    background-color:black;
+    width:500px;
+    height:200px;
+    padding:4.5em 2em;
+    margin: 0 0;
+    clip-path: polygon(0% 0%, 0% 100%, 66% 100%, 100% 0%);
+}
+.page-title > h1{
+    color:white;
+}
+.main-project{
+    position:relative;
+    bottom:10%;
+    
+}
+img{
+    width:500px;
+
+}
+.projects-container{
+    display:flex;
+}
+.left, .right{
+    width:250px;
+    position:relative;
+    top:40%;
+}
+.center{
+    position:relative;
+    top:10%;
+}
+h2{
+    position:relative;
+    top:10%;
+    text-align:center;
+    text-transform:uppercase;
+    padding:1em;
+}
+.left+h2, .right+h2{
+    
+    position: relative;
+    top:40%;
+    text-align:center;
+}
+
 
 
