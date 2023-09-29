@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!--CSS Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +13,8 @@
     <title>PortfolioLM - Projects</title>
 </head>
 <body>
+    <div class="custom-cursor"></div>
+
     <header>
         <h1 class="logo">Loïc Marcoux</h1>
         <nav>
@@ -23,12 +27,15 @@
     </header>
     <main>
         <div class=page-title><h1>Portfolio</h1></div>
-        <section class="projects-container"> 
-            <div clas="left-project project"><img class ="left" src="img/wip.png"><h2>Left project</h2></div>
-            <div class="main-project project"><h2>Main project</h2><img class="center" src="img/wip.png"></div>
-            <div class="right-project project"><img class="right" src="img/wip.png"><h2>Right project</h2></div>
+        
+        <section class="projects-container" id="caroussel-container"> 
+            <div clas="left-project project"><a href="#" id="link-left"><img class ="left" id="img-left" src="img/ironman.jpg" alt=""></a><h2>Left project</h2></div>
+            <i class="fa-solid fa-circle-left" id="buttonLeft"></i>
+            <div class="main-project project"><h2>Main view</h2><a href="#" id="link-center"><img class="center" id="img-center" src="img/wip.png" alt=""></a></div>
+            <i class="fa-solid fa-circle-right" id="buttonRight"></i>
+            <div class="right-project project"><a href="" id="link-right"><img class="right" id="img-right" src="img/harrypotter.jpg" alt=""></a><h2>Right project</h2></div>
         </section>
     </main>
-    <script src="main.js"></script>
+    <script src="caroussel.js"></script>
 </body>
 </html>

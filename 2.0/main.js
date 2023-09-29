@@ -81,6 +81,7 @@ function removeClass(){
     rond.style.borderRadius="";
 }
 
+//Créations des icônes dans le rond aggrandi
 function createIcons(){
     sectionRond = document.getElementById("rond-linkbox");
     //Création icone HTML
@@ -190,9 +191,13 @@ function toggleClick(box) {
     
 }
 
+
+
+
 // Appeler la fonction lorsqu'un élément est cliqué
 document.addEventListener("DOMContentLoaded", function () {
     var boxes = document.querySelectorAll(".menu > .box");
+    
 
     if (boxes.length === 3) {
         boxes.forEach(function (box) {

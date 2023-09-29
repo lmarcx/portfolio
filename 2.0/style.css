@@ -3,6 +3,22 @@
     margin:0 auto;
     font-family: 'Nunito', sans-serif;
 }
+body {
+    
+    
+}
+/*.custom-cursor {
+    
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+}*/
+
 
 header {
     display: flex;
@@ -163,7 +179,7 @@ div > p{
 }
 .main-project{
     position:relative;
-    bottom:10%;
+    top:-20%;
     
 }
 img{
@@ -179,12 +195,10 @@ img{
     top:40%;
 }
 .center{
-    position:relative;
-    top:10%;
+    
 }
 h2{
-    position:relative;
-    top:10%;
+    
     text-align:center;
     text-transform:uppercase;
     padding:1em;
@@ -195,6 +209,22 @@ h2{
     top:40%;
     text-align:center;
 }
-
+.fa-circle-left, .fa-circle-right{
+    position:absolute;
+    top:70%;
+    transform:scale(4);
+    color: grey;
+}
+.fa-circle-left{
+    left:30%;
+}
+.fa-circle-right{
+    right:31%;
+}
+.fa-circle-left:hover, .fa-circle-right:hover{
+    color:black;
+    transform:scale(4.5);
+    cursor: pointer;
+}
 
 
