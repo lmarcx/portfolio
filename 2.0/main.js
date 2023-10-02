@@ -30,6 +30,27 @@ function createTextClick(){
 }
 createTextClick();
 
+function createTextEtLa (){
+    let petitTriangle = document.getElementById("triangle-skillzbox");
+    let triangleLilP = document.createElement("p");
+    let triangleLilText = document.createTextNode("Et là !");
+    triangleLilP.appendChild(triangleLilText);
+    triangleLilP.classList.add("click");
+    petitTriangle.appendChild(triangleLilP);
+}
+createTextEtLa();
+
+function createTextIci (){
+     //Création du texte dans le rond
+    sectionRond = document.getElementById("rond-linkbox");
+    p4 = document.createElement("p");
+    text4 = document.createTextNode("Ou ici !");
+    p4.appendChild(text4);
+    p4.classList.add("click");
+    sectionRond.appendChild(p4);
+}
+createTextIci ();
+
 function removeTextClick(){
     pClick.remove();
     clickVerif = false;
@@ -55,13 +76,6 @@ function createMainText(){
     p3.classList.add("text-present");
     sectionPres.appendChild(p3);
     clickVerif = true;
-    //Création du texte dans le rond
-    sectionRond = document.getElementById("rond-linkbox");
-    p4 = document.createElement("p");
-    text4 = document.createTextNode("Ici aussi !");
-    p4.appendChild(text4);
-    p4.classList.add("click");
-    sectionRond.appendChild(p4);
 }
 function removeMainText(){
     p1.remove();
@@ -81,7 +95,7 @@ function removeClass(){
     rond.style.borderRadius="";
 }
 
-//Créations des icônes dans le rond aggrandi
+//Créations des icônes dans le rond aggrandi2 
 function createIcons(){
     sectionRond = document.getElementById("rond-linkbox");
     //Création icone HTML

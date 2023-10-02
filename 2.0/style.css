@@ -3,10 +3,7 @@
     margin:0 auto;
     font-family: 'Nunito', sans-serif;
 }
-body {
-    
-    
-}
+
 /*.custom-cursor {
     
     width: 20px;
@@ -115,12 +112,12 @@ nav a:hover::before {
 .menu *{
     align-items:center;
 }
+
 .carré{
     border:solid 1px;
     width:10em;
     height:10em;
     z-index:20;
-    background-color:"";
     cursor: pointer;
     overflow: clip;
 }
@@ -130,6 +127,33 @@ nav a:hover::before {
     height:10em;
     border-radius:10em;
     cursor: pointer;
+}
+.container-clip{
+    position: relative;
+    width:10em;
+    height:10em;
+}
+#triangle-border{
+    
+    width:10em;
+    height:10em;
+    z-index:20;
+    background-color:black;
+    cursor: pointer;
+    overflow: clip;
+    clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+}
+#triangle{
+    position:absolute;
+    top:2px;
+    left:2px;
+    width:156px;
+    height:156px;
+    z-index:20;
+    background-color:white;
+    cursor: pointer;
+    overflow: clip;
+    clip-path: polygon(50% 0%, 0 100%, 100% 100%);
 }
 #triangle-skillzbox{
     cursor: pointer;
@@ -154,6 +178,9 @@ div > p{
 }
 .click{
     padding:1.7em 0 1.7em 5px;
+    align-items:center;
+    text-align:center;
+    justify-content:center;
 }
 .text-present{
     padding:1em 4em;
@@ -194,9 +221,7 @@ img{
     position:relative;
     top:40%;
 }
-.center{
-    
-}
+
 h2{
     
     text-align:center;
@@ -226,5 +251,7 @@ h2{
     transform:scale(4.5);
     cursor: pointer;
 }
+
+
 
 
