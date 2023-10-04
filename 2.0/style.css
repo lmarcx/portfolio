@@ -251,6 +251,10 @@ h2{
     transform:scale(4.5);
     cursor: pointer;
 }
+/*Animations*/
+.box:hover{
+    transform:scale(1.5);
+}
 
 
 
