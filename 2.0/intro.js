@@ -32,6 +32,17 @@ let l8;
 let l9;
 let l10;
 let verifLinks = false;
+let a1;
+let a2;
+let a3;
+let a4;
+let a5;
+let sectionTitle = document.querySelector(".page-title");
+let titleH1 = document.querySelector(".page-title > h1")
+let titleH2 = document.getElementById("titleh2");
+var env;
+
+
 
 //Création du contenu
 function createMainText(){
@@ -54,13 +65,19 @@ function createMainText(){
     p3.appendChild(text3);
     p3.classList.add("text-present");
     sectionPres.appendChild(p3);
-    
+    //Création du page-title
+    titleH1.innerHTML = "Présentation";
 }
 function removeMainText(){
     p1.remove();
     p2.remove();
     p3.remove();
-    
+    titleH1.innerHTML = "À propos";
+}
+//Animation hover des icônes
+function testHover(){
+    titleH2.innerHTML ="Envoyer un mail";
+    console.log("test ok")
 }
 
 //Créations des icônes dans le rond aggrandi2 
@@ -69,43 +86,74 @@ function createIcons(){
     //Création icone PDF
     i1 = document.createElement("i");
     i1.classList.add("fa-solid", "fa-file-pdf");
+    i1.classList.add("ihover");
     i1.style.cssText += "transform:scale(6.5)";
     i1.style.cssText += "position: relative";
     i1.style.cssText += "top: 20%";
     i1.style.cssText += "left:49%";
-    sectionRond.appendChild(i1);
+    a1 = document.createElement("a");
+    a1.setAttribute("href", "cv.pdf");
+    a1.setAttribute("download", "cvloïcmarcoux");
+    a1.setAttribute("target", "_blank");
+    sectionRond.appendChild(a1)
+    a1.appendChild(i1);
     //Création icône Linkedin
     i2 = document.createElement("i");
     i2.classList.add("fa-brands", "fa-linkedin");
+    i2.classList.add("ihover");
     i2.style.cssText += "transform:scale(6.5)";
     i2.style.cssText += "position: relative";
     i2.style.cssText += "top: 46%";
     i2.style.cssText += "left:80%";
-    sectionRond.appendChild(i2);
+    a2 = document.createElement("a");
+    a2.setAttribute("href", "https://linkedin.com/in/lmarcx");
+    a2.setAttribute("target", "_blank");
+    sectionRond.appendChild(a2)
+    a2.appendChild(i2);
     //Création icône GitHub
     i3 = document.createElement("i");
     i3.classList.add("fa-brands", "fa-github");
+    i3.classList.add("ihover");
     i3.style.cssText += "transform:scale(6.5)";
     i3.style.cssText += "position: relative";
     i3.style.cssText += "top: 72%";
     i3.style.cssText += "left:46%";
-    sectionRond.appendChild(i3);
+    a3 = document.createElement("a");
+    a3.setAttribute("href", "https://github.com/lmarcx");
+    a3.setAttribute("target", "_blank");
+    sectionRond.appendChild(a3)
+    a3.appendChild(i3);
     //Création icône Twitter
     i4 = document.createElement("i");
     i4.classList.add("fa-brands", "fa-twitter");
+    i4.classList.add("ihover");
     i4.style.cssText += "transform:scale(6.5)";
     i4.style.cssText += "position: relative";
     i4.style.cssText += "top: 46%";
     i4.style.cssText += "left:15%";
-    sectionRond.appendChild(i4);
+    a4 = document.createElement("a");
+    a4.setAttribute("href", "https://x.com/helloraeves");
+    a4.setAttribute("target", "_blank");
+    sectionRond.appendChild(a4)
+    a4.appendChild(i4);
     //Créations icône Adobe
     i5 = document.createElement("i");
-    i5.classList.add("fa-regular", "fa-circle");
-    i5.style.cssText += "transform:scale(6.5)";
+    i5.classList.add("fa-solid", "fa-envelope");
+    i5.classList.add("ihover");
+    i5.style.cssText += "transform:scale(6.0)";
     i5.style.cssText += "position: relative";
-    i5.style.cssText += "top: 46%";
+    i5.style.cssText += "top: 47%";
     i5.style.cssText += "left:42%";
-    sectionRond.appendChild(i5);
+    a5 = document.createElement("a");
+    a5.setAttribute("href", "mailto:lmarcx.pro@gmail.com");
+    a5.setAttribute("target", "_blank");
+    sectionRond.appendChild(a5)
+    a5.appendChild(i5);
+    //Création du page-title
+    titleH1.innerHTML = "Liens utiles";
+    //Création des variables et écouteurs d'événements
+    env = document.querySelector(".fa-envelope");
+    env.addEventListener("mouseenter", testHover());
 }
 function removeIcons(){
     i1.remove();
@@ -113,6 +161,8 @@ function removeIcons(){
     i3.remove();
     i4.remove();
     i5.remove();
+    a2.remove();
+    titleH1.innerHTML = "À propos"
 }
 function isIconHere(){
     if (verifIcon){
@@ -206,6 +256,8 @@ function createLinks (){
     l10.style.cssText += "top: 30%";
     l10.style.cssText += "left:32%";
     sectionTriangle.appendChild(l10);
+    //Création du page-title
+    titleH1.innerHTML = "Compétences";
 }
 
 function removeLinks(){
@@ -219,6 +271,7 @@ function removeLinks(){
     l8.remove();
     l9.remove();
     l10.remove();
+    titleH1.innerHTML = "À propos";
 }
 
 function isLinksHere(){
@@ -325,14 +378,28 @@ function toggleClick(box){
 
 //Fonctions pour les animations 
 function mainHover (){
+    if (this.classList.contains("fa-envelope")){
+        console.log("hover enveloppe");
+        titleH2.innerHTML = "Envoyer un mail";
+        
+    }else{
+        
+    }
     
 }
+
+
 
 
 // Appeler la fonction lorsqu'un élément est cliqué
 document.addEventListener("DOMContentLoaded", function () {
     var boxes = document.querySelectorAll(".menu > .box");
+    var ihover = document.querySelectorAll(".ihover");
     
+    
+
+    ihover.forEach(item => item.addEventListener("mouseover", mainHover()));
+    ihover.forEach(item => item.addEventListener("mouseleave", leaveHover()));
 
     if (boxes.length === 3) {
         boxes.forEach(function (box) {

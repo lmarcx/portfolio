@@ -51,7 +51,9 @@ nav ul {
 nav li {
     margin-right: 20px;
 }
-
+a{
+    text-decoration:none;
+}
 nav a {
     text-decoration: none;
     color:black;
@@ -228,6 +230,12 @@ h2{
     text-transform:uppercase;
     padding:1em;
 }
+#titleh2{
+    color:white;
+    font-size:10px;
+    text-align:left;
+    text-transform:none;
+}
 .left+h2, .right+h2{
     
     position: relative;
@@ -252,10 +260,16 @@ h2{
     cursor: pointer;
 }
 /*Animations*/
-.box:hover{
+/*.box:hover{
     transform:scale(1.5);
 }
-
+*/
+i{
+    color:black;
+}
+i:hover{
+    transform:scale(1.2);
+}
 
 
 
